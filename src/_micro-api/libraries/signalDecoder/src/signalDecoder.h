@@ -68,11 +68,11 @@
 //#define DEBUGDETECT 1
 //#define DEBUGDETECT 2
 //#define DEBUGDETECT 3
-//#define DEBUGDETECT 255    /* very verbose output */ // ->> ESP8266, >>>stack>>> error
+#define DEBUGDETECT 255    /* very verbose output */ // ->> ESP8266, >>>stack>>> error
 
 /* all variations DEBUGDECODE | output serial */
 //#define DEBUGDECODE 1
-//#define DEBUGDECODE 255    /* very verbose output */
+#define DEBUGDECODE 255    /* very verbose output */
 
 /*
  * END debug options selection
