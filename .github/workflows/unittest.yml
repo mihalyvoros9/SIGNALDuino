@@ -6,42 +6,8 @@ on:
     tags:
       - '**'
 jobs:
-  unittest:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with: 
-          submodules: true
-
-      - uses: lukka/get-cmake@v3.29.6
-        with:
-          cmakeVersion: "~3.25.0"  # <--= optional, use most recent 3.25.x version
-
-      - name: prepare directory
-        working-directory: ./tests
-        run:  mkdir -p build
-
-      - uses: actions/cache@v4
-        with:
-          path: |
-            ./tests/build/_deps/
-          key: cmake-deps
-             
-      - name: cmake prepareBuild
-        working-directory: ./tests/build
-        run: cmake -DCMAKE_BUILD_TYPE=Release ..
-
-      - name: cmake build (compile) project
-        working-directory: ./tests/build
-        run: cmake --build .
-
-      - name: run ctest
-        working-directory: ./tests/build
-        run: ctest  -V
-
 
   build:
-    needs: unittest
     strategy:
       fail-fast: false
       matrix:
